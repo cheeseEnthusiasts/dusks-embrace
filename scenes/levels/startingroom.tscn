@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://bm14qogfx51p"]
+
+[ext_resource type="PackedScene" uid="uid://j6p1euxnij8r" path="res://scenes/characters/player.tscn" id="1_w2ooc"]
+[ext_resource type="Texture2D" uid="uid://d1umdk4hc035b" path="res://assets/Screenshot 2024-01-27 161854.png" id="2_50itw"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3oynt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eyuei"]
+size = Vector2(20, 19.6847)
+
+[node name="startingroom" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_w2ooc")]
+position = Vector2(142, 40)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(162, 133)
+scale = Vector2(27.6621, 5.16176)
+physics_material_override = SubResource("PhysicsMaterial_3oynt")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(0.0941969, -1.19209e-06)
+scale = Vector2(0.0950684, 0.0713212)
+texture = ExtResource("2_50itw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 0.160822)
+scale = Vector2(1.03004, 1.0202)
+shape = SubResource("RectangleShape2D_eyuei")
