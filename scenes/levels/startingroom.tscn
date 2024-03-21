@@ -1,14 +1,38 @@
-[gd_scene load_steps=5 format=3 uid="uid://bm14qogfx51p"]
+[gd_scene load_steps=9 format=3 uid="uid://bm14qogfx51p"]
 
+[ext_resource type="Texture2D" uid="uid://1qwcnqgwfnbj" path="res://assets/53d2cc33a0bbb7e8b10605362f214195.jpg" id="1_earx4"]
 [ext_resource type="PackedScene" uid="uid://j6p1euxnij8r" path="res://scenes/characters/player.tscn" id="1_w2ooc"]
-[ext_resource type="Texture2D" uid="uid://d1umdk4hc035b" path="res://assets/Screenshot 2024-01-27 161854.png" id="2_50itw"]
+[ext_resource type="Texture2D" uid="uid://bp5kf1dh26i4y" path="res://assets/basictilesheet.png" id="4_p7mxq"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3oynt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eyuei"]
-size = Vector2(20, 19.6847)
+size = Vector2(20.2154, 20.0645)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_y2vpw"]
+polygon = PackedVector2Array(9.76065, -7.36183, 9.76065, 8.33049, -9.90525, 8.33049, -9.9414, -7.1681)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ukkye"]
+texture = ExtResource("4_p7mxq")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_b2xkm"]
+sources/0 = SubResource("TileSetAtlasSource_ukkye")
 
 [node name="startingroom" type="Node2D"]
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(164, -11)
+scale = Vector2(2.40678, 1)
+texture = ExtResource("1_earx4")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_w2ooc")]
 position = Vector2(142, 40)
@@ -18,12 +42,18 @@ position = Vector2(162, 133)
 scale = Vector2(27.6621, 5.16176)
 physics_material_override = SubResource("PhysicsMaterial_3oynt")
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(0.0941969, -1.19209e-06)
-scale = Vector2(0.0950684, 0.0713212)
-texture = ExtResource("2_50itw")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, 0.160822)
+position = Vector2(-0.0723019, -0.0329132)
 scale = Vector2(1.03004, 1.0202)
 shape = SubResource("RectangleShape2D_eyuei")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="StaticBody2D"]
+occluder = SubResource("OccluderPolygon2D_y2vpw")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.156863, 0.156863, 0.156863, 1)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_b2xkm")
+format = 2
+layer_0/tile_data = PackedInt32Array(393208, 0, 0, 327707, 131072, 0, 720923, 131072, 2, 786424, 0, 2, 720888, 0, 1, 655352, 0, 1, 589816, 0, 1, 524280, 0, 1, 458744, 0, 1, 393209, 65536, 0, 393210, 65536, 0, 393211, 65536, 0, 393212, 65536, 0, 393213, 65536, 0, 393214, 65536, 0, 393215, 65536, 0, 327680, 65536, 0, 327681, 65536, 0, 327682, 65536, 0, 327683, 65536, 0, 327684, 65536, 0, 327685, 65536, 0, 327686, 65536, 0, 327687, 65536, 0, 327688, 65536, 0, 327689, 65536, 0, 327690, 65536, 0, 327691, 65536, 0, 327692, 65536, 0, 327693, 65536, 0, 327694, 65536, 0, 327695, 65536, 0, 327696, 65536, 0, 327697, 65536, 0, 327698, 65536, 0, 327699, 65536, 0, 327700, 65536, 0, 327701, 65536, 0, 327702, 65536, 0, 327703, 65536, 0, 327704, 65536, 0, 327705, 65536, 0, 327706, 65536, 0, 393243, 131072, 1, 458779, 131072, 1, 524315, 131072, 1, 589851, 131072, 1, 655387, 131072, 1, 786425, 65536, 2, 786426, 65536, 2, 786427, 65536, 2, 786428, 65536, 2, 786429, 65536, 2, 786430, 65536, 2, 786431, 65536, 2, 720896, 65536, 2, 720897, 65536, 2, 720898, 65536, 2, 720899, 65536, 2, 720900, 65536, 2, 720901, 65536, 2, 720902, 65536, 2, 720903, 65536, 2, 720904, 65536, 2, 720905, 65536, 2, 720906, 65536, 2, 720907, 65536, 2, 720908, 65536, 2, 720909, 65536, 2, 720910, 65536, 2, 720911, 65536, 2, 720912, 65536, 2, 720913, 65536, 2, 720914, 65536, 2, 720915, 65536, 2, 720916, 65536, 2, 720917, 65536, 2, 720918, 65536, 2, 720919, 65536, 2, 720920, 65536, 2, 720921, 65536, 2, 720922, 65536, 2)
