@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://fi5rgij5pk07"]
+
+[ext_resource type="Texture2D" uid="uid://cpy4i486ejvkm" path="res://assets/lantern-temp.png" id="1_t6v1u"]
+
+[sub_resource type="Gradient" id="Gradient_oi4ho"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g64s6"]
+gradient = SubResource("Gradient_oi4ho")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.857798, 0.192661)
+
+[node name="lantern" type="Sprite2D"]
+texture = ExtResource("1_t6v1u")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 1.86
+texture = SubResource("GradientTexture2D_g64s6")
