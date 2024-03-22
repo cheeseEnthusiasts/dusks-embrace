@@ -33,3 +33,10 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_right")and facingLeft: 
 		$AnimatedSprite2D.flip_h = false
 		facingLeft = false
+		
+	if not is_on_floor() and velocity.y >= 0:
+		$AnimatedSprite2D.play("jump")
+		$AnimatedSprite2D.set_frame_and_progress(1, 0.0)
+	elif not is_on_floor() and velocity.y <= 0:
+		$AnimatedSprite2D.play("jump")
+		$AnimatedSprite2D.set_frame_and_progress(0, 0.0)

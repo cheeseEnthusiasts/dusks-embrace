@@ -1,8 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://bm14qogfx51p"]
+[gd_scene load_steps=10 format=3 uid="uid://bm14qogfx51p"]
 
-[ext_resource type="Texture2D" uid="uid://1qwcnqgwfnbj" path="res://assets/53d2cc33a0bbb7e8b10605362f214195.jpg" id="1_earx4"]
 [ext_resource type="PackedScene" uid="uid://j6p1euxnij8r" path="res://scenes/characters/player.tscn" id="1_w2ooc"]
 [ext_resource type="Texture2D" uid="uid://bp5kf1dh26i4y" path="res://assets/basictilesheet.png" id="4_p7mxq"]
+
+[sub_resource type="Gradient" id="Gradient_5jvm4"]
+offsets = PackedFloat32Array(0.00645161, 1)
+colors = PackedColorArray(0.151276, 0.151276, 0.151276, 1, 0.0768358, 0.0768358, 0.0768358, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_35anx"]
+gradient = SubResource("Gradient_5jvm4")
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3oynt"]
 
@@ -30,28 +36,28 @@ sources/0 = SubResource("TileSetAtlasSource_ukkye")
 [node name="startingroom" type="Node2D"]
 
 [node name="background" type="Sprite2D" parent="."]
-position = Vector2(164, -11)
-scale = Vector2(2.40678, 1)
-texture = ExtResource("1_earx4")
+position = Vector2(191.75, -44.75)
+scale = Vector2(15.5391, 12.0703)
+texture = SubResource("GradientTexture2D_35anx")
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_w2ooc")]
+[node name="player" parent="." instance=ExtResource("1_w2ooc")]
 position = Vector2(142, 40)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Staticbody" type="StaticBody2D" parent="."]
 position = Vector2(162, 133)
 scale = Vector2(27.6621, 5.16176)
 physics_material_override = SubResource("PhysicsMaterial_3oynt")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Staticbody"]
 position = Vector2(-0.0723019, -0.0329132)
 scale = Vector2(1.03004, 1.0202)
 shape = SubResource("RectangleShape2D_eyuei")
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="StaticBody2D"]
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Staticbody"]
 occluder = SubResource("OccluderPolygon2D_y2vpw")
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.156863, 0.156863, 0.156863, 1)
+[node name="darkness" type="CanvasModulate" parent="."]
+color = Color(0, 0, 0, 1)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_b2xkm")
