@@ -1,8 +1,38 @@
-[gd_scene load_steps=15 format=3 uid="uid://bm14qogfx51p"]
+[gd_scene load_steps=20 format=3 uid="uid://bm14qogfx51p"]
 
 [ext_resource type="PackedScene" uid="uid://j6p1euxnij8r" path="res://scenes/characters/player.tscn" id="1_w2ooc"]
 [ext_resource type="FontFile" uid="uid://b801diyxd83fb" path="res://fonts/PressStart2P-vaV7.ttf" id="3_xiay5"]
 [ext_resource type="Texture2D" uid="uid://bp5kf1dh26i4y" path="res://assets/basictilesheet.png" id="4_p7mxq"]
+
+[sub_resource type="Gradient" id="Gradient_3syn3"]
+offsets = PackedFloat32Array(0, 0.37037, 1)
+colors = PackedColorArray(0.881845, 0.759848, 7.70092e-07, 1, 0.939531, 0.332082, 3.36559e-07, 1, 0.984314, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_gsxxo"]
+gradient = SubResource("Gradient_3syn3")
+
+[sub_resource type="Curve" id="Curve_n55g8"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.945783, 0.252632), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_n4go0"]
+curve = SubResource("Curve_n55g8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3n8iv"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 10.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 90.0
+initial_velocity_max = 120.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 2.0
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_n4go0")
+color_ramp = SubResource("GradientTexture1D_gsxxo")
+turbulence_enabled = true
+turbulence_noise_scale = 1.44
 
 [sub_resource type="Gradient" id="Gradient_r4shv"]
 offsets = PackedFloat32Array(0)
@@ -57,7 +87,13 @@ sources/0 = SubResource("TileSetAtlasSource_ukkye")
 
 [node name="startingroom" type="Node2D"]
 
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(217, 48)
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_3n8iv")
+
 [node name="Background" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(929, 153)
 scale = Vector2(53.4375, 22.6094)
 texture = SubResource("GradientTexture2D_llmht")
@@ -112,7 +148,3 @@ scale = Vector2(0.552637, 0.956564)
 theme_override_fonts/font = ExtResource("3_xiay5")
 theme_override_font_sizes/font_size = 16
 text = "Escape the darkness, and feel the embrace of the setting sun for the final time"
-
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-position = Vector2(197, 29)
-gravity = Vector2(0, 0)
