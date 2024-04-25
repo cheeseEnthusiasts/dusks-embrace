@@ -1,3 +1,2 @@
 # Dusks Embrace
-A black and white 2d horror? game
-
+A grayscale 2D platformer based around light.
