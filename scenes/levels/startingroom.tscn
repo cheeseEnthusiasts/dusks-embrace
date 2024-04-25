@@ -1,12 +1,24 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=13 format=3 uid="uid://bm14qogfx51p"]
+=======
+[gd_scene load_steps=7 format=3 uid="uid://bm14qogfx51p"]
+>>>>>>> Stashed changes
 
+[ext_resource type="Texture2D" uid="uid://b5tk3ujpw5nvb" path="res://assets/Sprite-0005.png" id="1_pjysd"]
 [ext_resource type="PackedScene" uid="uid://j6p1euxnij8r" path="res://scenes/characters/player.tscn" id="1_w2ooc"]
+<<<<<<< Updated upstream
 [ext_resource type="FontFile" uid="uid://b801diyxd83fb" path="res://fonts/PressStart2P-vaV7.ttf" id="3_xiay5"]
 [ext_resource type="Texture2D" uid="uid://bp5kf1dh26i4y" path="res://assets/basictilesheet.png" id="4_p7mxq"]
 
 [sub_resource type="Gradient" id="Gradient_44uhp"]
 offsets = PackedFloat32Array(0, 0.277419, 0.683871)
 colors = PackedColorArray(0.485703, 0.485704, 0.485703, 1, 0.633757, 0.633757, 0.633757, 1, 0, 0, 0, 1)
+=======
+
+[sub_resource type="Gradient" id="Gradient_5jvm4"]
+offsets = PackedFloat32Array(0.00645161)
+colors = PackedColorArray(0.525101, 0.525101, 0.525101, 1)
+>>>>>>> Stashed changes
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_kv2gy"]
 gradient = SubResource("Gradient_44uhp")
@@ -25,6 +37,7 @@ fill = 1
 fill_from = Vector2(0.444954, 0.545872)
 fill_to = Vector2(0.866973, 0.224771)
 
+<<<<<<< Updated upstream
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3oynt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eyuei"]
@@ -35,6 +48,10 @@ size = Vector2(20.7866, 5.81197)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ukkye"]
 texture = ExtResource("4_p7mxq")
+=======
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eibsm"]
+texture = ExtResource("1_pjysd")
+>>>>>>> Stashed changes
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -45,11 +62,12 @@ texture = ExtResource("4_p7mxq")
 1:2/0 = 0
 2:2/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_b2xkm"]
-sources/0 = SubResource("TileSetAtlasSource_ukkye")
+[sub_resource type="TileSet" id="TileSet_hfwer"]
+sources/0 = SubResource("TileSetAtlasSource_eibsm")
 
 [node name="startingroom" type="Node2D"]
 
+<<<<<<< Updated upstream
 [node name="player" parent="." instance=ExtResource("1_w2ooc")]
 position = Vector2(142, 40)
 
@@ -82,8 +100,24 @@ shape = SubResource("RectangleShape2D_eyuei")
 position = Vector2(-0.0903759, -7.94303)
 shape = SubResource("RectangleShape2D_082w6")
 
+=======
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(191.75, -44.75)
+scale = Vector2(15.5391, 12.0703)
+texture = SubResource("GradientTexture2D_35anx")
+
+[node name="TileMap" type="TileMap" parent="background"]
+tile_set = SubResource("TileSet_hfwer")
+format = 2
+
+[node name="player" parent="." instance=ExtResource("1_w2ooc")]
+position = Vector2(142, 40)
+
+>>>>>>> Stashed changes
 [node name="darkness" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0, 0, 0, 1)
+<<<<<<< Updated upstream
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(0.999095, 0.961422)
@@ -104,3 +138,5 @@ text = "Escape the darkness, and feel the embrace of the setting sun for the fin
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 position = Vector2(197, 29)
 gravity = Vector2(0, 0)
+=======
+>>>>>>> Stashed changes
