@@ -29,7 +29,7 @@ colors = PackedColorArray(0.439049, 0.439049, 0.439049, 1, 0.114897, 0.114897, 0
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_y5nxy"]
 gradient = SubResource("Gradient_2qqx8")
 fill = 1
-fill_from = Vector2(0.495413, 0.509174)
+fill_from = Vector2(0.444954, 0.545872)
 fill_to = Vector2(0.866973, 0.224771)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3oynt"]
@@ -58,8 +58,8 @@ sources/0 = SubResource("TileSetAtlasSource_ukkye")
 [node name="startingroom" type="Node2D"]
 
 [node name="background" type="Sprite2D" parent="."]
-position = Vector2(174, -40)
-scale = Vector2(78.6612, 12.0703)
+position = Vector2(174, 153.875)
+scale = Vector2(78.6612, 18.1289)
 texture = SubResource("GradientTexture2D_35anx")
 
 [node name="player" parent="." instance=ExtResource("1_w2ooc")]
@@ -67,7 +67,7 @@ position = Vector2(142, 40)
 
 [node name="Lighting" type="Node" parent="."]
 
-[node name="Text light" type="PointLight2D" parent="Lighting"]
+[node name="Starting Light" type="PointLight2D" parent="Lighting"]
 position = Vector2(191, 49)
 scale = Vector2(8.59524, 12.4118)
 energy = 1.49
@@ -80,19 +80,18 @@ scale = Vector2(3.43245, 2.42561)
 energy = 5.2
 texture = SubResource("GradientTexture2D_y5nxy")
 
-[node name="Staticbody" type="StaticBody2D" parent="."]
+[node name="platforms" type="StaticBody2D" parent="."]
 position = Vector2(162, 133)
 scale = Vector2(27.6621, 5.16176)
 physics_material_override = SubResource("PhysicsMaterial_3oynt")
 
-[node name="Platform 1" type="CollisionShape2D" parent="Staticbody"]
+[node name="Platform 1" type="CollisionShape2D" parent="platforms"]
 position = Vector2(16.6835, -7.94303)
 scale = Vector2(1.06098, 1.04081)
 shape = SubResource("RectangleShape2D_eyuei")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Staticbody"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platforms"]
 position = Vector2(-0.0903759, -7.94303)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_082w6")
 
 [node name="darkness" type="CanvasModulate" parent="."]
@@ -105,10 +104,10 @@ format = 2
 layer_0/tile_data = PackedInt32Array(393208, 0, 0, 393209, 65536, 0, 393210, 65536, 0, 393211, 65536, 0, 393212, 65536, 0, 393213, 65536, 0, 393214, 65536, 0, 393215, 65536, 0, 327680, 65536, 0, 327681, 65536, 0, 327682, 65536, 0, 327683, 65536, 0, 327684, 65536, 0, 327685, 65536, 0, 327686, 65536, 0, 327687, 65536, 0, 327688, 65536, 0, 327689, 65536, 0, 327690, 65536, 0, 327691, 65536, 0, 327692, 65536, 0, 327693, 65536, 0, 327694, 65536, 0, 327695, 65536, 0, 327696, 65536, 0, 327697, 65536, 0, 327698, 65536, 0, 327699, 65536, 0, 327700, 65536, 0, 327701, 65536, 0, 327702, 65536, 0, 327703, 65536, 0, 327704, 65536, 0, 327705, 65536, 0, 327706, 65536, 0, 327707, 131072, 0, 327716, 0, 0, 327717, 65536, 0, 327718, 65536, 0, 327719, 65536, 0, 327720, 65536, 0, 327721, 131072, 0, 393257, 131072, 2, 393256, 65536, 2, 393255, 65536, 2, 393254, 65536, 2, 393253, 65536, 2, 393252, 0, 2, 393243, 131072, 2, 393242, 65536, 2, 393241, 65536, 2, 393240, 65536, 2, 393239, 65536, 2, 393238, 65536, 2, 393237, 65536, 2, 393236, 65536, 2, 393235, 65536, 2, 393234, 65536, 2, 393233, 65536, 2, 393232, 65536, 2, 393231, 65536, 2, 393230, 65536, 2, 393229, 65536, 2, 393228, 65536, 2, 393227, 65536, 2, 393226, 65536, 2, 393225, 65536, 2, 393224, 65536, 2, 393223, 65536, 2, 393222, 65536, 2, 393221, 65536, 2, 393220, 65536, 2, 393219, 65536, 2, 393218, 65536, 2, 393217, 65536, 2, 393216, 65536, 2, 458751, 65536, 2, 458750, 65536, 2, 458749, 65536, 2, 458748, 65536, 2, 458747, 65536, 2, 458746, 65536, 2, 458745, 65536, 2, 458744, 0, 2)
 
 [node name="Label" type="Label" parent="."]
-offset_left = -184.0
-offset_top = 9.0
-offset_right = 1080.0
-offset_bottom = 35.0
+offset_left = -181.0
+offset_top = 2.0
+offset_right = 1083.0
+offset_bottom = 28.0
 scale = Vector2(0.552637, 0.956564)
 theme_override_fonts/font = ExtResource("3_xiay5")
 theme_override_font_sizes/font_size = 16

@@ -41,7 +41,9 @@ func _physics_process(delta):
 	elif not is_on_floor() and velocity.y <= 0:
 		$AnimatedSprite2D.play("jump")
 		$AnimatedSprite2D.set_frame_and_progress(0, 0.0)
-		
+	
+	#kill
+	kill()
 	#sprinting stuff
 	dash(direction)
 	if sprinting:
@@ -50,9 +52,16 @@ func _physics_process(delta):
 		SPEED = 150
 	
 
-
+#sprinmt
 func dash(direction):
 	if Input.is_action_just_pressed("player_dash"):
 		sprinting = true
 	if Input.is_action_just_released("player_dash"):
 		sprinting = false
+
+#kill
+func kill():
+	if position.y >= 1000:
+		position.x = 0
+		position.y = 0
+	print(position.y)
