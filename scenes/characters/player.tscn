@@ -7,8 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://cnvrhanu5bo56" path="res://assets/run.png" id="3_gplx8"]
 
 [sub_resource type="Gradient" id="Gradient_l3h7w"]
-offsets = PackedFloat32Array(0.367742, 0.670968)
-colors = PackedColorArray(0.321728, 0.321728, 0.321728, 1, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0.00645161, 0.16129, 0.554839)
+colors = PackedColorArray(0.412152, 0.412152, 0.412152, 1, 0.393548, 0.393548, 0.393548, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_wegv1"]
 gradient = SubResource("Gradient_l3h7w")
