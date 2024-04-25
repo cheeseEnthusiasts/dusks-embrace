@@ -92,7 +92,6 @@ shape = SubResource("RectangleShape2D_eyuei")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Staticbody"]
 position = Vector2(-0.0903759, -7.94303)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_082w6")
 
 [node name="darkness" type="CanvasModulate" parent="."]
