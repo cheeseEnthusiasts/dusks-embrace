@@ -13,6 +13,7 @@ config_version=5
 config/name="dusk's embrace"
 run/main_scene="res://scenes/levels/startingroom.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
+boot_splash/bg_color=Color(0, 0, 0, 1)
 
 [autoload]
 
@@ -25,6 +26,10 @@ window/size/viewport_height=162
 window/size/mode=2
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
+
+[gui]
+
+theme/custom_font="res://fonts/PressStart2P-vaV7.ttf"
 
 [input]
 

@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://b801diyxd83fb"
-path="res://.godot/imported/PressStart2P-vaV7.ttf-e3f5da2d09ef975723c396282d2345ca.fontdata"
+uid="uid://cadvniv1gui04"
+path="res://.godot/imported/HachicroUndertaleBattleFontRegular-PKzBg.otf-603815e2478ad16ea3b8c1180f6f6a6c.fontdata"
 
 [deps]
 
-source_file="res://fonts/PressStart2P-vaV7.ttf"
-dest_files=["res://.godot/imported/PressStart2P-vaV7.ttf-e3f5da2d09ef975723c396282d2345ca.fontdata"]
+source_file="res://fonts/HachicroUndertaleBattleFontRegular-PKzBg.otf"
+dest_files=["res://.godot/imported/HachicroUndertaleBattleFontRegular-PKzBg.otf-603815e2478ad16ea3b8c1180f6f6a6c.fontdata"]
 
 [params]
 
