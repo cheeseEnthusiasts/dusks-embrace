@@ -64,4 +64,4 @@ func kill():
 	if position.y >= 1000:
 		position.x = 0
 		position.y = 0
-	print(position.y)
+

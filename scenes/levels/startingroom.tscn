@@ -1,12 +1,19 @@
-[gd_scene load_steps=13 format=3 uid="uid://bm14qogfx51p"]
+[gd_scene load_steps=15 format=3 uid="uid://bm14qogfx51p"]
 
 [ext_resource type="PackedScene" uid="uid://j6p1euxnij8r" path="res://scenes/characters/player.tscn" id="1_w2ooc"]
 [ext_resource type="FontFile" uid="uid://b801diyxd83fb" path="res://fonts/PressStart2P-vaV7.ttf" id="3_xiay5"]
 [ext_resource type="Texture2D" uid="uid://bp5kf1dh26i4y" path="res://assets/basictilesheet.png" id="4_p7mxq"]
 
+[sub_resource type="Gradient" id="Gradient_r4shv"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.0646965, 0.0646965, 0.0646965, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_llmht"]
+gradient = SubResource("Gradient_r4shv")
+
 [sub_resource type="Gradient" id="Gradient_44uhp"]
-offsets = PackedFloat32Array(0, 0.277419, 0.683871)
-colors = PackedColorArray(0.485703, 0.485704, 0.485703, 1, 0.633757, 0.633757, 0.633757, 1, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0, 0.625806)
+colors = PackedColorArray(0.485703, 0.485704, 0.485703, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_kv2gy"]
 gradient = SubResource("Gradient_44uhp")
@@ -16,13 +23,13 @@ fill = 1
 fill_from = Vector2(0.495413, 0.513761)
 
 [sub_resource type="Gradient" id="Gradient_2qqx8"]
-offsets = PackedFloat32Array(0, 0.625806, 1)
+offsets = PackedFloat32Array(0, 0.464516, 1)
 colors = PackedColorArray(0.439049, 0.439049, 0.439049, 1, 0.114897, 0.114897, 0.114897, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_y5nxy"]
 gradient = SubResource("Gradient_2qqx8")
 fill = 1
-fill_from = Vector2(0.444954, 0.545872)
+fill_from = Vector2(0.495413, 0.495413)
 fill_to = Vector2(0.866973, 0.224771)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3oynt"]
@@ -50,6 +57,11 @@ sources/0 = SubResource("TileSetAtlasSource_ukkye")
 
 [node name="startingroom" type="Node2D"]
 
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(929, 153)
+scale = Vector2(53.4375, 22.6094)
+texture = SubResource("GradientTexture2D_llmht")
+
 [node name="player" parent="." instance=ExtResource("1_w2ooc")]
 position = Vector2(142, 40)
 
@@ -63,7 +75,7 @@ shadow_enabled = true
 texture = SubResource("GradientTexture2D_kv2gy")
 
 [node name="Platform1" type="PointLight2D" parent="Lighting"]
-position = Vector2(634, 82)
+position = Vector2(624, 91)
 scale = Vector2(3.43245, 2.42561)
 energy = 5.2
 texture = SubResource("GradientTexture2D_y5nxy")
