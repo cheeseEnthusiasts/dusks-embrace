@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bm14qogfx51p"]
+[gd_scene load_steps=15 format=3 uid="uid://bm14qogfx51p"]
 
 [ext_resource type="PackedScene" uid="uid://j6p1euxnij8r" path="res://scenes/characters/player.tscn" id="1_w2ooc"]
 [ext_resource type="Texture2D" uid="uid://crg6ily7xc3dq" path="res://scripts/light.png" id="2_uyy4v"]
@@ -81,7 +81,6 @@ texture = ExtResource("2_uyy4v")
 
 [node name="Platform2" type="CollisionShape2D" parent="platforms"]
 position = Vector2(21.8892, -16.8918)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_t6ime")
 
 [node name="Platform2" type="PointLight2D" parent="platforms/Platform2"]
