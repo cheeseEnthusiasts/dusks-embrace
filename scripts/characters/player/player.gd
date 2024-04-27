@@ -76,3 +76,5 @@ func kill():
 func coyote_time():
 	await get_tree().create_timer(0.25).timeout
 	can_jump = false
+
+
