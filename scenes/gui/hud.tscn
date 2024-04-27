@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgdcy1b88ovsv"]
+
+[ext_resource type="PackedScene" uid="uid://c4x8dsdxng518" path="res://scenes/gui/inventory.tscn" id="1_uqunx"]
+
+[node name="hud" type="CanvasLayer"]
+
+[node name="inventory" parent="." instance=ExtResource("1_uqunx")]
+scale = Vector2(0.994609, 1)

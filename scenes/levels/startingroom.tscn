@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://crg6ily7xc3dq" path="res://scripts/light.png" id="2_uyy4v"]
 [ext_resource type="FontFile" uid="uid://b801diyxd83fb" path="res://fonts/PressStart2P-vaV7.ttf" id="3_xiay5"]
 [ext_resource type="Texture2D" uid="uid://bp5kf1dh26i4y" path="res://assets/basictilesheet.png" id="4_p7mxq"]
+[ext_resource type="PackedScene" uid="uid://bgdcy1b88ovsv" path="res://scenes/gui/hud.tscn" id="5_21g6s"]
 
 [sub_resource type="Gradient" id="Gradient_r4shv"]
 offsets = PackedFloat32Array(0)
@@ -112,3 +113,5 @@ text = "Escape the darkness, and feel the embrace of the setting sun for the fin
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_fmboh")
+
+[node name="hud" parent="." instance=ExtResource("5_21g6s")]
