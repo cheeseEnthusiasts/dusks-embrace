@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var inv = Inventory
 
 var SPEED = 500
-var JUMP_VELOCITY = -500
+var JUMP_VELOCITY = -700
 const DASH_SPEED = 750
 
 var can_jump : bool
