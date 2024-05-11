@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://j6p1euxnij8r"]
+[gd_scene load_steps=29 format=3 uid="uid://j6p1euxnij8r"]
 
 [ext_resource type="Script" path="res://scripts/characters/player/player.gd" id="1_rnsiy"]
 [ext_resource type="Texture2D" uid="uid://b0c5y5vu4o3lv" path="res://assets/betteritem.png" id="2_58gf2"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://crg6ily7xc3dq" path="res://scripts/light.png" id="2_vrewl"]
 [ext_resource type="Texture2D" uid="uid://dl86xpvglul3t" path="res://assets/jumo.png" id="3_cqy22"]
 [ext_resource type="Texture2D" uid="uid://cnvrhanu5bo56" path="res://assets/run.png" id="3_gplx8"]
+[ext_resource type="Texture2D" uid="uid://bdqb0qfd25eof" path="res://scripts/characters/player/texture.aesprite.png" id="7_4cu8e"]
+[ext_resource type="Texture2D" uid="uid://balixarxqn7b" path="res://assets/Sprite-0002.png" id="7_jywq8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_001xl"]
 size = Vector2(6, 22)
@@ -145,16 +147,11 @@ animations = [{
 "speed": 4.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6bo2r"]
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
 position = Vector2(134, 83)
 script = ExtResource("1_rnsiy")
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-scale = Vector2(0.19, 0.195)
-energy = 0.54
-shadow_enabled = true
-shadow_filter = 2
-texture = ExtResource("2_vrewl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 5)
@@ -172,3 +169,20 @@ autoplay = "idle"
 position_smoothing_speed = 2.0
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+
+[node name="lantern" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_6bo2r")
+position = Vector2(12, 7)
+texture = ExtResource("7_jywq8")
+
+[node name="PointLight2D" type="PointLight2D" parent="lantern"]
+position = Vector2(101, 2)
+scale = Vector2(-0.2, -0.206)
+shadow_enabled = true
+shadow_filter = 2
+texture = ExtResource("7_4cu8e")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(0.23, 0.23)
+energy = 0.5
+texture = ExtResource("2_vrewl")
