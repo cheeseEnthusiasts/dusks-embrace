@@ -17,8 +17,12 @@ var objectiveY : float
 var math : float
 var respawnX : float = 0
 var respawnY : float = 0
+var checkup : float 
+
 func ready():
 	global.checkpointNum = 0
+	checkup = global.checkpointXPOS
+	
 func _physics_process(delta):
 	if !is_on_floor():
 		coyote_time()
@@ -62,7 +66,6 @@ func _physics_process(delta):
 		$AnimatedSprite2D.play("jump")
 		$AnimatedSprite2D.set_frame_and_progress(0, 0.0)
 
-
 	#checkpoints
 	locate()
 	objective()
@@ -86,7 +89,6 @@ func _physics_process(delta):
 	#lantern holding
 	if lantern:
 		$lantern.visible = true
-
 	else: 
 		$lantern.visible = false
 
@@ -105,8 +107,8 @@ func dash(_direction):
 #kill
 func kill():
 	if position.y >= 1000:
-		respawnX = global.checkpointYPOS[global.checkpointNum]
-		respawnY = global.checkpointXPOS[global.checkpointNum]
+		respawnX = global.checkpointXPOS[global.checkpointNum]
+		respawnY = global.checkpointYPOS[global.checkpointNum]
 		position.x = respawnX
 		position.y = respawnY
 func coyote_time():
@@ -114,7 +116,7 @@ func coyote_time():
 	if velocity.y < 0:
 		can_jump = false
 
-#math???
+#checkpoints
 func locate():
 	pathX = position.x - global.checkpointXPOS[global.checkpointNum+1]
 	pathY = position.y - global.checkpointYPOS[global.checkpointNum+1]
@@ -126,6 +128,6 @@ func objective():
 	print("y",position.y)
 	print("cx",global.checkpointXPOS[global.checkpointNum+1])
 	print("cy",global.checkpointYPOS[global.checkpointNum+1])
-	if math<50:
-		if respawnX != global.checkpointXPOS[global.checkpointNum+1]:
-			global.checkpointNum += 1
+	print("RX",respawnX,"    ","RY",respawnY)
+	if math<50 and global.checkpointXPOS[global.checkpointNum] == checkup:
+		global.checkpointNum += 1

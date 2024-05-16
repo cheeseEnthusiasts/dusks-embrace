@@ -86,7 +86,6 @@ shape = SubResource("RectangleShape2D_e5isd")
 
 [node name="placehold" type="Sprite2D" parent="platforms/CollisionShape2D"]
 position = Vector2(-0.672668, 0)
-scale = Vector2(1, 1)
 texture = SubResource("GradientTexture2D_w26g3")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="platforms"]
@@ -96,7 +95,6 @@ shape = SubResource("RectangleShape2D_e5isd")
 
 [node name="placehold" type="Sprite2D" parent="platforms/CollisionShape2D2"]
 position = Vector2(-0.672668, 0)
-scale = Vector2(1, 1)
 texture = SubResource("GradientTexture2D_w26g3")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="platforms"]
@@ -106,7 +104,6 @@ shape = SubResource("RectangleShape2D_e5isd")
 
 [node name="placehold" type="Sprite2D" parent="platforms/CollisionShape2D3"]
 position = Vector2(-0.672668, 0)
-scale = Vector2(1, 1)
 texture = SubResource("GradientTexture2D_w26g3")
 
 [node name="Starting Platform" type="CollisionShape2D" parent="platforms"]
