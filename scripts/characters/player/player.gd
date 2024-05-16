@@ -64,8 +64,8 @@ func _physics_process(delta):
 
 
 	#checkpoints
-	objective()
 	locate()
+	objective()
 	
 	#kill
 	kill()
@@ -105,8 +105,10 @@ func dash(_direction):
 #kill
 func kill():
 	if position.y >= 1000:
-		respawnX = 0
-		respawnY = 0
+		respawnX = global.checkpointYPOS[global.checkpointNum]
+		respawnY = global.checkpointXPOS[global.checkpointNum]
+		position.x = respawnX
+		position.y = respawnY
 func coyote_time():
 	await get_tree().create_timer(0.25).timeout
 	if velocity.y < 0:
@@ -125,5 +127,5 @@ func objective():
 	print("cx",global.checkpointXPOS[global.checkpointNum+1])
 	print("cy",global.checkpointYPOS[global.checkpointNum+1])
 	if math<50:
-		if respawnX != global.checkpointXPOS[global.checkpointNum]:
+		if respawnX != global.checkpointXPOS[global.checkpointNum+1]:
 			global.checkpointNum += 1
