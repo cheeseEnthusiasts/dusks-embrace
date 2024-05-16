@@ -4,17 +4,21 @@ extends CharacterBody2D
 
 var SPEED = 500
 var JUMP_VELOCITY = -700
-const DASH_SPEED = 750
 
 var can_jump : bool
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var facingLeft : bool = false
 var sprinting : bool = false
 var lantern : bool = false
-
-
-
-
+var pathX : float
+var pathY : float
+var objectiveX : float
+var objectiveY : float
+var math : float
+var respawnX : float = 0
+var respawnY : float = 0
+func ready():
+	global.checkpointNum = 0
 func _physics_process(delta):
 	if !is_on_floor():
 		coyote_time()
@@ -30,7 +34,7 @@ func _physics_process(delta):
 		can_jump = true
 	#basic movement
 	var direction = Input.get_axis("ui_left", "ui_right")
-	
+
 	if direction:
 		velocity.x = direction * SPEED
 		$AnimatedSprite2D.play("move")
@@ -50,43 +54,46 @@ func _physics_process(delta):
 		$lantern/PointLight2D.move_local_x(202)
 		$lantern/PointLight2D.scale.x = $lantern/PointLight2D.scale.x * -1
 		facingLeft = false
-		
+
 	if not is_on_floor() and velocity.y >= 0:
 		$AnimatedSprite2D.play("jump")
 		$AnimatedSprite2D.set_frame_and_progress(1, 0.0)
 	elif not is_on_floor() and velocity.y <= 0:
 		$AnimatedSprite2D.play("jump")
 		$AnimatedSprite2D.set_frame_and_progress(0, 0.0)
+
+
+	#checkpoints
+	objective()
+	locate()
 	
 	#kill
 	kill()
+	
 	#sprinting stuff
 	dash(direction)
+
+	if lantern and !sprinting:
+		SPEED = 400
+		JUMP_VELOCITY = -500
+	elif !lantern and !sprinting:
+		SPEED = 500
+		JUMP_VELOCITY = -600
+
 	if sprinting:
 		SPEED = 750
-	elif !sprinting:
-		SPEED = 500
-		
-		
+
 	#lantern holding
 	if lantern:
 		$lantern.visible = true
-	
+
 	else: 
 		$lantern.visible = false
-		
-	if Input.is_action_just_pressed("lantern-toggle") and lantern and !sprinting:
-		lantern = false
-	elif Input.is_action_just_pressed("lantern-toggle") and !lantern and !sprinting:
-		lantern = true
 
-	if lantern and !sprinting:
-		SPEED = 500.0
-		JUMP_VELOCITY = -250
-	elif !lantern and !sprinting:
-		SPEED = 750.0
-		JUMP_VELOCITY = -500
-
+#	if Input.is_action_just_pressed("lantern-toggle") and lantern and !sprinting:
+#		lantern = false
+#	elif Input.is_action_just_pressed("lantern-toggle") and !lantern and !sprinting:
+#		lantern = true
 
 #sprinmt
 func dash(_direction):
@@ -98,12 +105,25 @@ func dash(_direction):
 #kill
 func kill():
 	if position.y >= 1000:
-		position.x = 0
-		position.y = 0
-
+		respawnX = 0
+		respawnY = 0
 func coyote_time():
 	await get_tree().create_timer(0.25).timeout
 	if velocity.y < 0:
 		can_jump = false
 
-
+#math???
+func locate():
+	pathX = position.x - global.checkpointXPOS[global.checkpointNum+1]
+	pathY = position.y - global.checkpointYPOS[global.checkpointNum+1]
+	math = (pathX*pathX) + (pathY * pathY)
+	math = sqrt(math)
+func objective():
+	print("Distance to next objective: ",math,"          ","Checkpoint: ",global.checkpointNum)
+	print("x",position.x)
+	print("y",position.y)
+	print("cx",global.checkpointXPOS[global.checkpointNum+1])
+	print("cy",global.checkpointYPOS[global.checkpointNum+1])
+	if math<50:
+		if respawnX != global.checkpointXPOS[global.checkpointNum]:
+			global.checkpointNum += 1

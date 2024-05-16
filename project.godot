@@ -25,6 +25,10 @@ window/size/mode=2
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
+[dotnet]
+
+project/assembly_name="dusk-s embrace"
+
 [gui]
 
 theme/custom_font="res://fonts/PressStart2P-vaV7.ttf"
@@ -91,4 +95,4 @@ lantern-toggle={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-environment/defaults/default_clear_color=Color(0, 0, 0, 1)
+environment/defaults/default_clear_color=Color(0.427451, 0.427451, 0.419608, 1)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bm14qogfx51p"]
+[gd_scene load_steps=19 format=3 uid="uid://bm14qogfx51p"]
 
 [ext_resource type="PackedScene" uid="uid://j6p1euxnij8r" path="res://scenes/characters/player.tscn" id="1_w2ooc"]
 [ext_resource type="Texture2D" uid="uid://crg6ily7xc3dq" path="res://scripts/light.png" id="2_uyy4v"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bp5kf1dh26i4y" path="res://assets/basictilesheet.png" id="4_p7mxq"]
 [ext_resource type="PackedScene" uid="uid://bgdcy1b88ovsv" path="res://scenes/gui/hud.tscn" id="5_21g6s"]
 [ext_resource type="Texture2D" uid="uid://d1umdk4hc035b" path="res://assets/Screenshot 2024-01-27 161854.png" id="6_ptmbp"]
+[ext_resource type="Texture2D" uid="uid://dc7irmmxos348" path="res://assets/notif.png" id="7_ywma4"]
 
 [sub_resource type="Gradient" id="Gradient_r4shv"]
 offsets = PackedFloat32Array(0)
@@ -19,11 +20,18 @@ gradient = SubResource("Gradient_r4shv")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eyuei"]
 size = Vector2(3.2369, 5.5841)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e5isd"]
+size = Vector2(62.5017, 63.8465)
+
+[sub_resource type="Gradient" id="Gradient_o684l"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_w26g3"]
+gradient = SubResource("Gradient_o684l")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_082w6"]
 size = Vector2(20.7866, 5.81197)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t6ime"]
-size = Vector2(1.12067, 5.73788)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ukkye"]
 texture = ExtResource("4_p7mxq")
@@ -48,8 +56,8 @@ tonemap_mode = 1
 scale = Vector2(5, 5)
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(742, 6)
-scale = Vector2(106.063, 80.4141)
+position = Vector2(4036.6, -2848)
+scale = Vector2(205.11, 156.766)
 texture = SubResource("GradientTexture2D_llmht")
 
 [node name="player" parent="." instance=ExtResource("1_w2ooc")]
@@ -71,6 +79,36 @@ scale = Vector2(0.0201788, 0.0716261)
 energy = 0.93
 texture = ExtResource("2_uyy4v")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platforms"]
+position = Vector2(22.0807, -10.1516)
+scale = Vector2(0.0430319, 0.0740378)
+shape = SubResource("RectangleShape2D_e5isd")
+
+[node name="placehold" type="Sprite2D" parent="platforms/CollisionShape2D"]
+position = Vector2(-0.672668, 0)
+scale = Vector2(1, 1)
+texture = SubResource("GradientTexture2D_w26g3")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="platforms"]
+position = Vector2(27.1924, -14.9174)
+scale = Vector2(0.0430319, 0.0740378)
+shape = SubResource("RectangleShape2D_e5isd")
+
+[node name="placehold" type="Sprite2D" parent="platforms/CollisionShape2D2"]
+position = Vector2(-0.672668, 0)
+scale = Vector2(1, 1)
+texture = SubResource("GradientTexture2D_w26g3")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="platforms"]
+position = Vector2(31.7185, -18.8308)
+scale = Vector2(0.0430319, 0.0740378)
+shape = SubResource("RectangleShape2D_e5isd")
+
+[node name="placehold" type="Sprite2D" parent="platforms/CollisionShape2D3"]
+position = Vector2(-0.672668, 0)
+scale = Vector2(1, 1)
+texture = SubResource("GradientTexture2D_w26g3")
+
 [node name="Starting Platform" type="CollisionShape2D" parent="platforms"]
 position = Vector2(-0.0903759, -7.94303)
 shape = SubResource("RectangleShape2D_082w6")
@@ -81,17 +119,8 @@ energy = 1.49
 shadow_enabled = true
 texture = ExtResource("2_uyy4v")
 
-[node name="Platform2" type="CollisionShape2D" parent="platforms"]
-position = Vector2(21.8892, -16.8918)
-shape = SubResource("RectangleShape2D_t6ime")
-
-[node name="Platform2" type="PointLight2D" parent="platforms/Platform2"]
-position = Vector2(-0.0178413, -0.15669)
-scale = Vector2(0.00636647, 0.0283629)
-energy = 0.93
-texture = ExtResource("2_uyy4v")
-
 [node name="darkness" type="CanvasModulate" parent="."]
+visible = false
 z_index = 2
 color = Color(0, 0, 0, 1)
 
@@ -99,7 +128,7 @@ color = Color(0, 0, 0, 1)
 scale = Vector2(0.999095, 0.961422)
 tile_set = SubResource("TileSet_b2xkm")
 format = 2
-layer_0/tile_data = PackedInt32Array(393208, 0, 0, 393209, 65536, 0, 393210, 65536, 0, 393211, 65536, 0, 393212, 65536, 0, 393213, 65536, 0, 393214, 65536, 0, 393215, 65536, 0, 327680, 65536, 0, 327681, 65536, 0, 327682, 65536, 0, 327683, 65536, 0, 327684, 65536, 0, 327685, 65536, 0, 327686, 65536, 0, 327687, 65536, 0, 327688, 65536, 0, 327689, 65536, 0, 327690, 65536, 0, 327691, 65536, 0, 327692, 65536, 0, 327693, 65536, 0, 327694, 65536, 0, 327695, 65536, 0, 327696, 65536, 0, 327697, 65536, 0, 327698, 65536, 0, 327699, 65536, 0, 327700, 65536, 0, 327701, 65536, 0, 327702, 65536, 0, 327703, 65536, 0, 327704, 65536, 0, 327705, 65536, 0, 327706, 65536, 0, 327707, 131072, 0, 327716, 0, 0, 327717, 65536, 0, 327718, 65536, 0, 327719, 65536, 0, 327720, 65536, 0, 327721, 131072, 0, 393257, 131072, 2, 393256, 65536, 2, 393255, 65536, 2, 393254, 65536, 2, 393253, 65536, 2, 393252, 0, 2, 393243, 131072, 2, 393242, 65536, 2, 393241, 65536, 2, 393240, 65536, 2, 393239, 65536, 2, 393238, 65536, 2, 393237, 65536, 2, 393236, 65536, 2, 393235, 65536, 2, 393234, 65536, 2, 393233, 65536, 2, 393232, 65536, 2, 393231, 65536, 2, 393230, 65536, 2, 393229, 65536, 2, 393228, 65536, 2, 393227, 65536, 2, 393226, 65536, 2, 393225, 65536, 2, 393224, 65536, 2, 393223, 65536, 2, 393222, 65536, 2, 393221, 65536, 2, 393220, 65536, 2, 393219, 65536, 2, 393218, 65536, 2, 393217, 65536, 2, 393216, 65536, 2, 458751, 65536, 2, 458750, 65536, 2, 458749, 65536, 2, 458748, 65536, 2, 458747, 65536, 2, 458746, 65536, 2, 458745, 65536, 2, 458744, 0, 2, 196655, 0, 2, 196656, 131072, 2, 131120, 131072, 0, 131119, 0, 0)
+layer_0/tile_data = PackedInt32Array(393208, 0, 0, 393209, 65536, 0, 393210, 65536, 0, 393211, 65536, 0, 393212, 65536, 0, 393213, 65536, 0, 393214, 65536, 0, 393215, 65536, 0, 327680, 65536, 0, 327681, 65536, 0, 327682, 65536, 0, 327683, 65536, 0, 327684, 65536, 0, 327685, 65536, 0, 327686, 65536, 0, 327687, 65536, 0, 327688, 65536, 0, 327689, 65536, 0, 327690, 65536, 0, 327691, 65536, 0, 327692, 65536, 0, 327693, 65536, 0, 327694, 65536, 0, 327695, 65536, 0, 327696, 65536, 0, 327697, 65536, 0, 327698, 65536, 0, 327699, 65536, 0, 327700, 65536, 0, 327701, 65536, 0, 327702, 65536, 0, 327703, 65536, 0, 327704, 65536, 0, 327705, 65536, 0, 327706, 65536, 0, 327707, 131072, 0, 327716, 0, 0, 327717, 65536, 0, 327718, 65536, 0, 327719, 65536, 0, 327720, 65536, 0, 327721, 131072, 0, 393257, 131072, 2, 393256, 65536, 2, 393255, 65536, 2, 393254, 65536, 2, 393253, 65536, 2, 393252, 0, 2, 393243, 131072, 2, 393242, 65536, 2, 393241, 65536, 2, 393240, 65536, 2, 393239, 65536, 2, 393238, 65536, 2, 393237, 65536, 2, 393236, 65536, 2, 393235, 65536, 2, 393234, 65536, 2, 393233, 65536, 2, 393232, 65536, 2, 393231, 65536, 2, 393230, 65536, 2, 393229, 65536, 2, 393228, 65536, 2, 393227, 65536, 2, 393226, 65536, 2, 393225, 65536, 2, 393224, 65536, 2, 393223, 65536, 2, 393222, 65536, 2, 393221, 65536, 2, 393220, 65536, 2, 393219, 65536, 2, 393218, 65536, 2, 393217, 65536, 2, 393216, 65536, 2, 458751, 65536, 2, 458750, 65536, 2, 458749, 65536, 2, 458748, 65536, 2, 458747, 65536, 2, 458746, 65536, 2, 458745, 65536, 2, 458744, 0, 2)
 
 [node name="Label" type="Label" parent="."]
 offset_left = -103.0
@@ -120,7 +149,7 @@ offset_bottom = 156.371
 scale = Vector2(1.03136, 1.46271)
 theme_override_fonts/font = ExtResource("3_xiay5")
 theme_override_font_sizes/font_size = 16
-text = "Press 'Q' to grab your lantern, bewere though, it is quite cumbersome."
+text = "Press 'Q' to grab your lantern, beware though, it is quite cumbersome."
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_fmboh")
@@ -131,3 +160,7 @@ visible = false
 [node name="Screenshot2024-01-27161854" type="Sprite2D" parent="."]
 position = Vector2(-427, 173)
 texture = ExtResource("6_ptmbp")
+
+[node name="Notif" type="Sprite2D" parent="."]
+position = Vector2(1038.6, 4)
+texture = ExtResource("7_ywma4")
