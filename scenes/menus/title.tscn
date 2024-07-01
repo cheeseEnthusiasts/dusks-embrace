@@ -1,4 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dlcbrwp44ulxy"]
+[gd_scene load_steps=4 format=3 uid="uid://dlcbrwp44ulxy"]
+
+[ext_resource type="Script" path="res://scripts/ui/title.gd" id="1_phdf2"]
+[ext_resource type="PackedScene" uid="uid://c5rlfe8v5tfl6" path="res://scenes/menus/splash/title_splash.tscn" id="2_d2geg"]
 
 [sub_resource type="Environment" id="Environment_0uyob"]
 background_mode = 3
@@ -15,34 +18,52 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_phdf2")
+
+[node name="title_splash" parent="." instance=ExtResource("2_d2geg")]
+layout_mode = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_0uyob")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -4
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -104.0
-offset_top = 9.0
-offset_right = 104.0
-offset_bottom = 32.0
+offset_left = -214.5
+offset_top = 56.0
+offset_right = 214.5
+offset_bottom = 116.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-text = "yeah no this doesnt work"
+theme_override_font_sizes/font_size = 32
+text = "Dusks Embrace"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 4
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
+anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = -36.0
 offset_top = -20.0
-offset_right = 40.0
+offset_right = 36.0
 offset_bottom = 20.0
+grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Button" type="Button" parent="HBoxContainer"]
 layout_mode = 2
 text = "Play
 "
+
+[connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_play_button_pressed"]

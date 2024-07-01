@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5rlfe8v5tfl6"]
+
+[ext_resource type="Texture2D" uid="uid://d4jgmcvul057v" path="res://assets/cheeselogo.png" id="1_cwrdc"]
+[ext_resource type="Script" path="res://scripts/ui/title.gd" id="1_xdbbp"]
+
+[sub_resource type="Animation" id="Animation_3mksm"]
+resource_name = "intro"
+length = 2.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Cheeselogo:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.6, 2.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(566, 309), Vector2(566, 309), Vector2(566, -500)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1gyhm"]
+_data = {
+"intro": SubResource("Animation_3mksm")
+}
+
+[node name="title_splash" type="Control"]
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xdbbp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+editor_description = "stupid animation"
+autoplay = "intro"
+libraries = {
+"": SubResource("AnimationLibrary_1gyhm")
+}
+
+[node name="Cheeselogo" type="Sprite2D" parent="AnimationPlayer"]
+position = Vector2(566, 309)
+scale = Vector2(0.971667, 0.971667)
+texture = ExtResource("1_cwrdc")
+
+[node name="this thing is not good at all" type="Node" parent="."]
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_intro_finished"]
