@@ -152,7 +152,6 @@ text = "Press 'Q' to grab your lantern, beware though, it is quite cumbersome."
 environment = SubResource("Environment_fmboh")
 
 [node name="hud" parent="." instance=ExtResource("5_21g6s")]
-visible = false
 
 [node name="Screenshot2024-01-27161854" type="Sprite2D" parent="."]
 position = Vector2(-427, 173)

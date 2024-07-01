@@ -1,0 +1,69 @@
+[gd_scene load_steps=2 format=3 uid="uid://kgq8ogi5j42o"]
+
+[ext_resource type="Script" path="res://scripts/ui/debug.gd" id="1_ivpbu"]
+
+[node name="debug" type="CanvasLayer"]
+script = ExtResource("1_ivpbu")
+
+[node name="xpos" type="Label" parent="."]
+offset_left = 8.0
+offset_right = 17.0
+offset_bottom = 26.0
+theme_override_font_sizes/font_size = 16
+text = "x"
+
+[node name="ypos" type="Label" parent="."]
+offset_left = 8.0
+offset_top = 24.0
+offset_right = 17.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 16
+text = "y"
+
+[node name="cxpos" type="Label" parent="."]
+offset_left = 8.0
+offset_top = 48.0
+offset_right = 107.0
+offset_bottom = 74.0
+theme_override_font_sizes/font_size = 16
+text = "checkpoint x"
+
+[node name="cypos" type="Label" parent="."]
+offset_left = 8.0
+offset_top = 72.0
+offset_right = 106.0
+offset_bottom = 98.0
+theme_override_font_sizes/font_size = 16
+text = "checkpoint y"
+
+[node name="distanceToObj" type="Label" parent="."]
+offset_left = 8.0
+offset_top = 96.0
+offset_right = 181.0
+offset_bottom = 122.0
+theme_override_font_sizes/font_size = 16
+text = "Distance to Objective: "
+
+[node name="checkpoint" type="Label" parent="."]
+offset_left = 8.0
+offset_top = 120.0
+offset_right = 98.0
+offset_bottom = 146.0
+theme_override_font_sizes/font_size = 16
+text = "checkpoint:"
+
+[node name="respawnXpos" type="Label" parent="."]
+offset_left = 8.0
+offset_top = 144.0
+offset_right = 88.0
+offset_bottom = 170.0
+theme_override_font_sizes/font_size = 16
+text = "respawn x"
+
+[node name="respawnYpos" type="Label" parent="."]
+offset_left = 8.0
+offset_top = 168.0
+offset_right = 88.0
+offset_bottom = 194.0
+theme_override_font_sizes/font_size = 16
+text = "respawn y"

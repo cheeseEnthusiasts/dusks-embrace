@@ -28,10 +28,6 @@ window/stretch/mode="viewport"
 
 project/assembly_name="dusk-s embrace"
 
-[gui]
-
-theme/custom_font="res://fonts/PressStart2P-vaV7.ttf"
-
 [input]
 
 ui_left={

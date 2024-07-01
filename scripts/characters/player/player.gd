@@ -1,7 +1,5 @@
 extends CharacterBody2D
 
-@export var inv = Inventory
-
 var SPEED = 500
 var JUMP_VELOCITY = -700
 
@@ -123,11 +121,13 @@ func locate():
 	math = (pathX*pathX) + (pathY * pathY)
 	math = sqrt(math)
 func objective():
-	print("Distance to next objective: ",math,"          ","Checkpoint: ",global.checkpointNum)
-	print("x",position.x)
-	print("y",position.y)
-	print("cx",global.checkpointXPOS[global.checkpointNum+1])
-	print("cy",global.checkpointYPOS[global.checkpointNum+1])
-	print("RX",respawnX,"    ","RY",respawnY)
+	#print("Distance to next objective: ",math,"          ","Checkpoint: ",global.checkpointNum)
+	#print("x",position.x)
+	#print("y",position.y)
+	#print("cx",global.checkpointXPOS[global.checkpointNum+1])
+	#print("cy",global.checkpointYPOS[global.checkpointNum+1])
+	#print("RX",respawnX,"    ","RY",respawnY)
+	# replaced with in-game menu, toggle it with grave [`]
+
 	if math<50 and global.checkpointXPOS[global.checkpointNum] == checkup:
 		global.checkpointNum += 1
