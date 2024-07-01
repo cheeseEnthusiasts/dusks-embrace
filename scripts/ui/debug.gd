@@ -1,5 +1,6 @@
 extends CanvasLayer
 
+
 @onready var player = get_parent().get_parent().get_node("player")
 #this was a pain to get working but it finds the parent of the debug node, then finds the parent of the hud node, then it gets the player
 
@@ -14,8 +15,6 @@ var respawnY: float
 
 var toggled = false
 
-func _ready():
-	pass
 
 func _process(_delta):
 	if Input.is_action_just_pressed("debug"):
