@@ -26,7 +26,7 @@ func _physics_process(delta):
 		coyote_time()
 	player()
 	#gravity
-	if not is_on_floor():
+	if not is_on_floor() or not is_on_ceiling():
 		if global.gravityflip:
 			velocity.y += -gravity * delta
 			$AnimatedSprite2D.flip_v = true
@@ -40,7 +40,7 @@ func _physics_process(delta):
 		else:
 			velocity.y = JUMP_VELOCITY
 	#checking if can jump
-	if is_on_floor():
+	if is_on_floor() or is_on_ceiling():
 		can_jump = true
 	#basic movement
 	var direction = Input.get_axis("ui_left", "ui_right")
@@ -65,12 +65,21 @@ func _physics_process(delta):
 		$lantern/PointLight2D.scale.x = $lantern/PointLight2D.scale.x * -1
 		facingLeft = false
 
-	if not is_on_floor() and velocity.y >= 0:
-		$AnimatedSprite2D.play("jump")
-		$AnimatedSprite2D.set_frame_and_progress(1, 0.0)
-	elif not is_on_floor() and velocity.y <= 0:
-		$AnimatedSprite2D.play("jump")
-		$AnimatedSprite2D.set_frame_and_progress(0, 0.0)
+	
+	if global.gravityflip:
+		if not is_on_ceiling() and velocity.y >= 0:
+			$AnimatedSprite2D.play("jump")
+			$AnimatedSprite2D.set_frame_and_progress(1, 0.0)
+		elif not is_on_ceiling() and velocity.y <= 0:
+			$AnimatedSprite2D.play("jump")
+			$AnimatedSprite2D.set_frame_and_progress(0, 0.0)
+	else:
+		if not is_on_floor() and velocity.y >= 0:
+			$AnimatedSprite2D.play("jump")
+			$AnimatedSprite2D.set_frame_and_progress(1, 0.0)
+		elif not is_on_floor() and velocity.y <= 0:
+			$AnimatedSprite2D.play("jump")
+			$AnimatedSprite2D.set_frame_and_progress(0, 0.0)
 
 	#checkpoints
 	locate()
