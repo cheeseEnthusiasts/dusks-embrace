@@ -29,8 +29,10 @@ func _physics_process(delta):
 	if not is_on_floor():
 		if global.gravityflip:
 			velocity.y += -gravity * delta
+			$AnimatedSprite2D.flip_v = true
 		else:
 			velocity.y += gravity * delta
+			$AnimatedSprite2D.flip_v = false
 	#jumping
 	if Input.is_action_just_pressed("ui_accept") and can_jump:
 		if global.gravityflip:
@@ -123,9 +125,12 @@ func kill():
 		respawnY = global.checkpointYPOS[global.checkpointNum]
 		position.x = respawnX
 		position.y = respawnY
+#also jumping
 func coyote_time():
 	await get_tree().create_timer(0.25).timeout
-	if velocity.y < 0:
+	if velocity.y < 0 and !global.gravityflip:
+		can_jump = false
+	if velocity.y > 0 and global.gravityflip:
 		can_jump = false
 
 #checkpoints
@@ -148,4 +153,7 @@ func objective():
 		
 func player():
 	pass
+	
+
+
 

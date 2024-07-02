@@ -139,6 +139,7 @@ texture = SubResource("GradientTexture2D_w26g3")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="platforms"]
 position = Vector2(36.353, -37.2354)
+rotation = 0.00111297
 scale = Vector2(0.0430319, 0.0740378)
 shape = SubResource("RectangleShape2D_e5isd")
 
@@ -209,3 +210,7 @@ position = Vector2(1141.2, 69.8)
 [node name="gravitylever2" parent="." instance=ExtResource("9_5752m")]
 position = Vector2(1198.6, -43.8)
 rotation = -3.14111
+
+[node name="Spike2" parent="." instance=ExtResource("8_7gkam")]
+position = Vector2(1145.8, -199.8)
+scale = Vector2(9.62987, -0.405286)
