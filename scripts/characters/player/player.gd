@@ -27,10 +27,16 @@ func _physics_process(delta):
 	player()
 	#gravity
 	if not is_on_floor():
-		velocity.y += gravity * delta
+		if global.gravityflip:
+			velocity.y += -gravity * delta
+		else:
+			velocity.y += gravity * delta
 	#jumping
 	if Input.is_action_just_pressed("ui_accept") and can_jump:
-		velocity.y = JUMP_VELOCITY
+		if global.gravityflip:
+			velocity.y = -JUMP_VELOCITY
+		else:
+			velocity.y = JUMP_VELOCITY
 	#checking if can jump
 	if is_on_floor():
 		can_jump = true
@@ -74,11 +80,9 @@ func _physics_process(delta):
 	#sprinting stuff
 	dash(direction)
 	
-	#gravityflips
-	if global.gravityflip:
-		gravityflip()
-	if not global.gravityflip:
-		nogravflip()
+
+	
+	#lantern
 	if lantern and !sprinting:
 		SPEED = 400
 		JUMP_VELOCITY = -500
@@ -145,8 +149,3 @@ func objective():
 func player():
 	pass
 
-func gravityflip():
-	JUMP_VELOCITY = 700
-	
-func nogravflip():
-	JUMP_VELOCITY = -700
