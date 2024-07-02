@@ -146,6 +146,15 @@ shape = SubResource("RectangleShape2D_e5isd")
 position = Vector2(0.671204, -1.0466)
 texture = SubResource("GradientTexture2D_w26g3")
 
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="platforms"]
+position = Vector2(31.7402, -41.7687)
+scale = Vector2(0.0430319, 0.0740378)
+shape = SubResource("RectangleShape2D_e5isd")
+
+[node name="placehold" type="Sprite2D" parent="platforms/CollisionShape2D7"]
+position = Vector2(0.336121, 1.0468)
+texture = SubResource("GradientTexture2D_w26g3")
+
 [node name="darkness" type="CanvasModulate" parent="."]
 visible = false
 z_index = 2

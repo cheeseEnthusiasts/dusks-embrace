@@ -99,10 +99,10 @@ func _physics_process(delta):
 	else: 
 		$lantern.visible = false
 
-#	if Input.is_action_just_pressed("lantern-toggle") and lantern and !sprinting:
-#		lantern = false
-#	elif Input.is_action_just_pressed("lantern-toggle") and !lantern and !sprinting:
-#		lantern = true
+	if Input.is_action_just_pressed("lantern-toggle") and lantern and !sprinting:
+		lantern = false
+	elif Input.is_action_just_pressed("lantern-toggle") and !lantern and !sprinting:
+		lantern = true
 
 #sprinmt
 func dash(_direction):
