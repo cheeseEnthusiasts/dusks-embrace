@@ -1,0 +1,55 @@
+[gd_scene load_steps=10 format=3 uid="uid://2at1qsubh03b"]
+
+[ext_resource type="Script" path="res://scenes/objects/gravitylever.gd" id="1_avaw4"]
+[ext_resource type="Texture2D" uid="uid://barbic7t50qgy" path="res://lever3_Layer 1.png" id="2_d0655"]
+[ext_resource type="Texture2D" uid="uid://b3xxe58w8oofu" path="res://lever4_Layer 1.png" id="3_12kai"]
+[ext_resource type="Texture2D" uid="uid://c62cl8id4nf1m" path="res://lever7_Layer 1.png" id="4_lydcg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1nlor"]
+radius = 1292.65
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28e25"]
+atlas = ExtResource("2_d0655")
+region = Rect2(0, 0, 521, 261)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0bud"]
+atlas = ExtResource("4_lydcg")
+region = Rect2(0, 0, 521, 271)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibhu1"]
+atlas = ExtResource("3_12kai")
+region = Rect2(0, 0, 521, 249)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_656aw"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_28e25")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_u0bud")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_ibhu1")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_u0bud")
+}],
+"loop": false,
+"name": &"flip",
+"speed": 4.0
+}]
+
+[node name="gravitylever" type="Area2D"]
+scale = Vector2(0.0274262, 0.0276765)
+script = ExtResource("1_avaw4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-6, 63)
+shape = SubResource("CircleShape2D_1nlor")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_656aw")
+animation = &"flip"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

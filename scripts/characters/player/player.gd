@@ -24,7 +24,7 @@ func ready():
 func _physics_process(delta):
 	if !is_on_floor():
 		coyote_time()
-
+	player()
 	#gravity
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -73,7 +73,12 @@ func _physics_process(delta):
 	
 	#sprinting stuff
 	dash(direction)
-
+	
+	#gravityflips
+	if global.gravityflip:
+		gravityflip()
+	if not global.gravityflip:
+		nogravflip()
 	if lantern and !sprinting:
 		SPEED = 400
 		JUMP_VELOCITY = -500
@@ -136,3 +141,12 @@ func objective():
 
 	if math<50 and global.checkpointXPOS[global.checkpointNum] == checkup:
 		global.checkpointNum += 1
+		
+func player():
+	pass
+
+func gravityflip():
+	JUMP_VELOCITY = 700
+	
+func nogravflip():
+	JUMP_VELOCITY = -700

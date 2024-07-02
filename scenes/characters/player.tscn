@@ -154,6 +154,7 @@ position = Vector2(134, 83)
 script = ExtResource("1_rnsiy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-1, 5)
 shape = SubResource("RectangleShape2D_001xl")
 
