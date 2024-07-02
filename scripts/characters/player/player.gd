@@ -109,6 +109,11 @@ func kill():
 		respawnY = global.checkpointYPOS[global.checkpointNum]
 		position.x = respawnX
 		position.y = respawnY
+	if global.spike_touch:
+		respawnX = global.checkpointXPOS[global.checkpointNum]
+		respawnY = global.checkpointYPOS[global.checkpointNum]
+		position.x = respawnX
+		position.y = respawnY
 func coyote_time():
 	await get_tree().create_timer(0.25).timeout
 	if velocity.y < 0:

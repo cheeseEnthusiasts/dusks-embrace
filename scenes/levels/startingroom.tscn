@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bm14qogfx51p"]
+[gd_scene load_steps=20 format=3 uid="uid://bm14qogfx51p"]
 
 [ext_resource type="PackedScene" uid="uid://j6p1euxnij8r" path="res://scenes/characters/player.tscn" id="1_w2ooc"]
 [ext_resource type="Texture2D" uid="uid://crg6ily7xc3dq" path="res://scripts/light.png" id="2_uyy4v"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bgdcy1b88ovsv" path="res://scenes/gui/hud.tscn" id="5_21g6s"]
 [ext_resource type="Texture2D" uid="uid://d1umdk4hc035b" path="res://assets/Screenshot 2024-01-27 161854.png" id="6_ptmbp"]
 [ext_resource type="Texture2D" uid="uid://dc7irmmxos348" path="res://assets/notif.png" id="7_ywma4"]
+[ext_resource type="PackedScene" uid="uid://b1a12pfx81res" path="res://scenes/objects/spike.tscn" id="8_7gkam"]
 
 [sub_resource type="Gradient" id="Gradient_r4shv"]
 offsets = PackedFloat32Array(0)
@@ -116,6 +117,25 @@ energy = 1.49
 shadow_enabled = true
 texture = ExtResource("2_uyy4v")
 
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="platforms"]
+position = Vector2(36.2952, -9.14417)
+scale = Vector2(0.0430319, 0.0740378)
+shape = SubResource("RectangleShape2D_e5isd")
+
+[node name="placehold" type="Sprite2D" parent="platforms/CollisionShape2D4"]
+position = Vector2(0.998044, -1.04669)
+scale = Vector2(0.966398, 1)
+texture = SubResource("GradientTexture2D_w26g3")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="platforms"]
+position = Vector2(40.2139, -8.98918)
+scale = Vector2(0.0430319, 0.0740378)
+shape = SubResource("RectangleShape2D_e5isd")
+
+[node name="placehold" type="Sprite2D" parent="platforms/CollisionShape2D5"]
+position = Vector2(1.00818, -1.52588e-05)
+texture = SubResource("GradientTexture2D_w26g3")
+
 [node name="darkness" type="CanvasModulate" parent="."]
 visible = false
 z_index = 2
@@ -160,3 +180,7 @@ texture = ExtResource("6_ptmbp")
 [node name="Notif" type="Sprite2D" parent="."]
 position = Vector2(1038.6, 4)
 texture = ExtResource("7_ywma4")
+
+[node name="Spike" parent="." instance=ExtResource("8_7gkam")]
+position = Vector2(1246.6, 64.8)
+scale = Vector2(0.398651, 0.438906)
