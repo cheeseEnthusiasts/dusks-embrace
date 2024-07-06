@@ -21,18 +21,20 @@ func ready():
 	global.checkpointNum = 0
 	checkup = global.checkpointXPOS
 	
+
 func _physics_process(delta):
 	if !is_on_floor():
 		coyote_time()
 	player()
 	#gravity
-	if not is_on_floor() or not is_on_ceiling():
-		if global.gravityflip:
-			velocity.y += -gravity * delta
-			$AnimatedSprite2D.flip_v = true
-		else:
-			velocity.y += gravity * delta
-			$AnimatedSprite2D.flip_v = false
+	
+	if global.gravityflip:
+		velocity.y += -gravity * delta
+		$AnimatedSprite2D.flip_v = true
+	else:
+		velocity.y += gravity * delta
+		$AnimatedSprite2D.flip_v = false
+
 	#jumping
 	if Input.is_action_just_pressed("ui_accept") and can_jump:
 		if global.gravityflip:
@@ -163,6 +165,15 @@ func objective():
 func player():
 	pass
 	
+func flip_me():
+	if global.gravityflip:
+		gravity = -gravity
+		$AnimatedSprite2D.flip_v = false
+	
+	
 
-
+func test1():
+	print("hahahh")
+func test2():
+	print("working")
 

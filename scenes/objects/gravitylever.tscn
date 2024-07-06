@@ -62,3 +62,5 @@ frame = 4
 frame_progress = 1.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="input_event" from="." to="." method="_on_input_event"]
