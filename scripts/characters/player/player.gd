@@ -165,10 +165,6 @@ func objective():
 func player():
 	pass
 	
-func flip_me():
-	if global.gravityflip:
-		gravity = -gravity
-		$AnimatedSprite2D.flip_v = false
 	
 	
 

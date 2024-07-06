@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://balixarxqn7b" path="res://assets/Sprite-0002.png" id="7_jywq8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_001xl"]
-size = Vector2(6, 22)
+size = Vector2(6, 31)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0ywcf"]
 shader = ExtResource("2_ee1jn")
@@ -154,8 +154,7 @@ position = Vector2(134, 83)
 script = ExtResource("1_rnsiy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(-1, 5)
+position = Vector2(-1, 0.5)
 shape = SubResource("RectangleShape2D_001xl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
