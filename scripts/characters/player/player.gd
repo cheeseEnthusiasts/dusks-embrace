@@ -166,10 +166,4 @@ func player():
 	pass
 	
 	
-	
-
-func test1():
-	print("hahahh")
-func test2():
-	print("working")
 
